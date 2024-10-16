@@ -22,6 +22,6 @@ To summarize I was given an assignment to extract data using OCR from image file
 
 - For the first request, please do wait for 40-60 seconds for my backend server to spinup along with my mongodb since its a free service.
 
-- You can vist this [URL](https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/) -> https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/ to find my project.
+- You can vist this [URL](https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/) -> https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/ and https://air-deal-frontend.vercel.app/ to find my project.
 
 - Hope you like it !
