@@ -18,32 +18,41 @@ const UploadImagePage = () => {
   });
 
   const [cards, setCards] = useState([]);
-  const handleGetCards = async () => {
+
+  const getAllCards = async () => {
+    setLoading(true);
     let url = process.env.NEXT_PUBLIC_API_URL + "/cards";
     try {
       const res = await axios.get(url);
-      console.log(res.data);
+
       setCards(res.data);
       // setExtractedData(response.data);
     } catch (error) {
       console.error("Error uploading the file:" + error);
       <Spinner />;
-      alert(
-        "Error processing image, Please wait for my free services to boot up."
-      );
+      alert("Error fetching images, Please try again after a few seconds.");
     } finally {
       setLoading(false);
     }
   };
 
+  const handleGetCards = async () => {
+    getAllCards();
+  };
+
   const handleDeleteCards = async () => {
+    setLoading(true);
     let url = process.env.NEXT_PUBLIC_API_URL + "/cards";
     try {
       const res = await axios.delete(url);
       console.log(res);
+      getAllCards();
       // setExtractedData(response.data);
     } catch (error) {
       console.error("Error uploading the file:" + error);
+      alert(
+        "Error deleting card, Please try again after a few seconds for my free service to boot up."
+      );
     } finally {
       setLoading(false);
     }
@@ -62,9 +71,13 @@ const UploadImagePage = () => {
     try {
       const res = await axios.post(url, formData);
       console.log(res);
+      getAllCards();
       // setExtractedData(response.data);
     } catch (error) {
       console.error("Error uploading the file:" + error);
+      alert(
+        "Error processing image, Please try again after a few seconds for my free service to boot up."
+      );
     } finally {
       setLoading(false);
     }
