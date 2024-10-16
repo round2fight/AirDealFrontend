@@ -12,11 +12,11 @@ To summarize I was given an assignment to extract data using OCR from image file
 
 ### Backend
 
-- [Backend hosting](hhttps://render.com/) - a reference to this free backend Node JS - Express JS hosting instance by Render.
+- [Backend hosting](https://render.com/) - a reference to this free backend Node JS - Express JS hosting instance by Render.
 
 ### Database
 
-- [Mongo DB Hosting](https://www.mongodb.com/lp/cloud/atlas/try4?utm_content=rlsavisitor&utm_source=google&utm_campaign=search_gs_pl_evergreen_atlas_core_retarget-brand_gic-null_apac-in_ps-all_desktop_eng_lead&utm_term=cloud%20mongodb&utm_medium=cpc_paid_search&utm_ad=p&utm_ad_campaign_id=21698789722&adgroup=165762135725&cq_cmp=21698789722&gad_source=1&gclid=Cj0KCQjwyL24BhCtARIsALo0fSC6UaYyLzXU9Na96zYvxnziVtcXRniVMXT4Exij3O0Cb1tyz6mqZIkaArtDEALw_wcB) - a reference to this free mongodb hosting instance.
+- [Mongo DB Hosting](https://www.mongodb.com/lp/cloud/atlas/try4?utm_content=rlsavisitor&utm_source=google&utm_campaign=search_gs_pl_evergreen_atlas_core_retarget-brand_gic-null_apac-in_ps-all_desktop_eng_lead&utm_term=cloud%20mongodb&utm_medium=cpc_paid_search&utm_ad=p&utm_ad_campaign_id=21698789722&adgroup=165762135725&cq_cmp=21698789722&gad_source=1&gclid=Cj0KCQjwyL24BhCtARIsALo0fSC6UaYyLzXU9Na96zYvxnziVtcXRniVMXT4Exij3O0Cb1tyz6mqZIkaArtDEALw_wcB) - a reference to this free mongodb hosting instance by MongoDb Atlas.
 
 ## Instructions
 
