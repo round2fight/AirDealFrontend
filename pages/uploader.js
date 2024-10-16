@@ -183,7 +183,6 @@ const UploadImagePage = () => {
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
             />
-            ;
             {/* {cards.map((card) => (
                 <div key={card._id}>Yo</div>
               ))} */}
