@@ -43,7 +43,7 @@ const UploadImagePage = () => {
   const handleGetCards = async () => {
     getAllCards();
   };
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const handleDeleteCards = async () => {
     setLoading(true);
     let url = process.env.NEXT_PUBLIC_API_URL + "/cards";
@@ -147,7 +147,7 @@ const UploadImagePage = () => {
               <button
                 className="m-3 disabled:bg-gray-400  disabled:hover:bg-gray-400  bg-brightPinkCrayola disabled:text-gray-200 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-wine focus:outline-none focus:ring-2 focus:ring-blue-300 "
                 onClick={handleSubmit}
-                disabled={!file}
+                disabled={!file || loading === true}
               >
                 Process Image
               </button>
