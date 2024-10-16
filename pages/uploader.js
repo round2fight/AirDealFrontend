@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import Loader from "react-loader-spinner";
@@ -18,6 +18,10 @@ const UploadImagePage = () => {
   });
 
   const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    getAllCards();
+  }, []);
 
   const getAllCards = async () => {
     setLoading(true);
