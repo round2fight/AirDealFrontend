@@ -1,37 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is an assignment for AirDeal developer role by Roshan Daniel.
 
-## Getting Started
+## Details
 
-First, run the development server:
+Please do click on the links if in case you would like to know where I got my free services for hosting this MERN stack project.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To summarize I was given an assignment to extract data using OCR from image files using the MERN stack.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- [Frontend hosting](https://vercel.com/) - a reference to this free frontend React-Next JS hosting instance by Vercel.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Backend
 
-## Learn More
+- [Backend hosting](hhttps://render.com/) - a reference to this free backend Node JS - Express JS hosting instance by Render.
 
-To learn more about Next.js, take a look at the following resources:
+### Database
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Mongo DB Hosting](https://www.mongodb.com/lp/cloud/atlas/try4?utm_content=rlsavisitor&utm_source=google&utm_campaign=search_gs_pl_evergreen_atlas_core_retarget-brand_gic-null_apac-in_ps-all_desktop_eng_lead&utm_term=cloud%20mongodb&utm_medium=cpc_paid_search&utm_ad=p&utm_ad_campaign_id=21698789722&adgroup=165762135725&cq_cmp=21698789722&gad_source=1&gclid=Cj0KCQjwyL24BhCtARIsALo0fSC6UaYyLzXU9Na96zYvxnziVtcXRniVMXT4Exij3O0Cb1tyz6mqZIkaArtDEALw_wcB) - a reference to this free mongodb hosting instance.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Instructions
 
-## Deploy on Vercel
+- For the first request, please do wait for 40-60 seconds for my backend server to spinup along with my mongodb since its a free service.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- You can vist this [URL](https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/) -> https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/ to find my project.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# AirDealFrontend
+- Hope you like it !
