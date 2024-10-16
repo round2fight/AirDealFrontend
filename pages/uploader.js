@@ -18,7 +18,7 @@ const UploadImagePage = () => {
 
   const [cards, setCards] = useState([]);
   const handleGetCards = async () => {
-    let url = "http://localhost:5000/cards";
+    let url = process.env.NEXT_PUBLIC_API_URL + "/cards";
     try {
       const res = await axios.get(url);
       console.log(res.data);
@@ -32,7 +32,7 @@ const UploadImagePage = () => {
   };
 
   const handleDeleteCards = async () => {
-    let url = "http://localhost:5000/cards";
+    let url = process.env.NEXT_PUBLIC_API_URL + "/cards";
     try {
       const res = await axios.delete(url);
       console.log(res);
@@ -52,7 +52,7 @@ const UploadImagePage = () => {
 
     const formData = new FormData();
     formData.append("image", file);
-    let url = "http://localhost:5000/upload";
+    let url = process.env.NEXT_PUBLIC_API_URL + "/upload";
 
     try {
       const res = await axios.post(url, formData);
