@@ -5,7 +5,6 @@ import Loader from "react-loader-spinner";
 import Spinner from "@/components/Spinner";
 const UploadImagePage = () => {
   const [file, setFile] = useState(null);
-  const [extractedData, setExtractedData] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const onDrop = (acceptedFiles) => {
@@ -28,8 +27,9 @@ const UploadImagePage = () => {
     let url = process.env.NEXT_PUBLIC_API_URL + "/cards";
     try {
       const res = await axios.get(url);
-
+      console.log(res);
       setCards(res.data);
+
       // setExtractedData(response.data);
     } catch (error) {
       console.error("Error uploading the file:" + error);
@@ -43,7 +43,7 @@ const UploadImagePage = () => {
   const handleGetCards = async () => {
     getAllCards();
   };
-
+  const [currentPage, setCurrentPage] = useState(0);
   const handleDeleteCards = async () => {
     setLoading(true);
     let url = process.env.NEXT_PUBLIC_API_URL + "/cards";
@@ -51,6 +51,7 @@ const UploadImagePage = () => {
       const res = await axios.delete(url);
       console.log(res);
       getAllCards();
+      setCurrentPage(0);
       // setExtractedData(response.data);
     } catch (error) {
       console.error("Error uploading the file:" + error);
@@ -76,6 +77,8 @@ const UploadImagePage = () => {
       const res = await axios.post(url, formData);
       console.log(res);
       getAllCards();
+      setCurrentPage(1);
+      alert("Image OCR process executed succesfully !!!");
       // setExtractedData(response.data);
     } catch (error) {
       console.error("Error uploading the file:" + error);
@@ -93,26 +96,29 @@ const UploadImagePage = () => {
 
   return (
     <>
-      <div className="">
+      <div className="flex items-center flex-col">
         <div className="m-2">{loading === true && <Spinner />}</div>
 
-        <div className="justify-center rounded-3xl overflow-hidden shadow-xl p-4 bg-nyanza max-w-md mx-auto">
+        <div className="mt-4 justify-center rounded-3xl overflow-hidden shadow-xl p-4 bg-nyanza max-w-md mx-auto">
           <div className="m-4 flex justify-center items-center">
             <div className="text-center">
-              <h1 className="text-gray-700 font-bold text-4xl">
+              <h1 className="text-brightPinkCrayola font-bold text-4xl">
                 AirDeal Assignment
               </h1>
-              <p className="text-xl text-gray-700">OCR using MERN stack</p>
-              <p className="text-l text-gray-700">By Roshan Daniel</p>
+              <p className="text-xl text-midnightGreen">OCR using MERN stack</p>
+              <p className="text-l text-brightPinkCrayola font-bold">
+                By Roshan Daniel
+              </p>
             </div>
           </div>{" "}
           <div className="">
             <div
               {...getRootProps()}
+              className="bg-midnightGreen"
               style={{ border: "2px dashed #ccc", padding: "20px" }}
             >
               <input {...getInputProps()} />
-              <div className="text-center text-gray-700">
+              <div className="text-center text-nyanza">
                 Drag & drop a visiting card image here, or click to select a
                 file
               </div>
@@ -139,14 +145,14 @@ const UploadImagePage = () => {
             <div className="flex justify-center">
               {" "}
               <button
-                className="m-3 disabled:bg-gray-400  disabled:hover:bg-gray-400  bg-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-300 "
+                className="m-3 disabled:bg-gray-400  disabled:hover:bg-gray-400  bg-brightPinkCrayola disabled:text-gray-200 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-wine focus:outline-none focus:ring-2 focus:ring-blue-300 "
                 onClick={handleSubmit}
                 disabled={!file}
               >
                 Process Image
               </button>
               <button
-                className="m-3 disabled:bg-gray-400  disabled:hover:bg-gray-400  bg-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-300 "
+                className="m-3 disabled:bg-gray-400  disabled:hover:bg-gray-400  bg-brightPinkCrayola disabled:text-gray-200 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-wine focus:outline-none focus:ring-2 focus:ring-blue-300 "
                 onClick={handleClear}
                 disabled={!file}
               >
@@ -155,16 +161,16 @@ const UploadImagePage = () => {
             </div>
           </div>
         </div>
-        <div className=" mt-2 justify-center rounded-3xl overflow-hidden shadow-xl p-4 bg-nyanza max-w-md mx-auto">
+        <div className=" mt-4 justify-center rounded-3xl overflow-hidden shadow-xl p-4 bg-nyanza max-w-md mx-auto">
           <div className="m-2 flex justify-center">
             <button
-              className="m-3  bg-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-300 "
+              className="m-3  bg-brightPinkCrayola text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-300 "
               onClick={handleGetCards}
             >
               Get Cards
             </button>
             <button
-              className="m-3  bg-blue-500 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-300 "
+              className="m-3  bg-brightPinkCrayola text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-300 "
               onClick={handleDeleteCards}
             >
               Delete All Cards
@@ -172,7 +178,12 @@ const UploadImagePage = () => {
           </div>
           <div className="m-2 flex justify-center max-w-4xl">
             {" "}
-            <CardPagination cards={cards} />;
+            <CardPagination
+              cards={cards}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+            />
+            ;
             {/* {cards.map((card) => (
                 <div key={card._id}>Yo</div>
               ))} */}
@@ -185,8 +196,8 @@ const UploadImagePage = () => {
 
 export default UploadImagePage;
 
-const CardPagination = ({ cards }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const CardPagination = ({ cards, currentPage, setCurrentPage }) => {
+  // const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 2;
 
   // Calculate total pages
@@ -210,88 +221,95 @@ const CardPagination = ({ cards }) => {
     <div className="flex flex-col justify-center items-center   ">
       {/* Card container */}
       <div className="flex flex-row gap-2 ">
+        {currentCards.length === 0 && (
+          <div className="text-midnightGreen">
+            Waiting for the first card :)
+          </div>
+        )}
         {currentCards.map((card, index) => (
           <div
             key={index}
-            className="bg-blue-500 rounded-lg shadow p-4 text-center"
+            className="bg-midnightGreen rounded-lg shadow p-4 text-center"
           >
-            <h2 className="text-xl font-bold text-gray-800">{card.name}</h2>
+            <h2 className="text-xl font-bold text-brightPinkCrayola">
+              {card.name}
+            </h2>
             <form className="space-y-2">
               <div>
-                <label className="block text-gray-700 font-semibold">
+                <label className="block text-brightPinkCrayola font-semibold">
                   Name
                 </label>
                 <input
                   type="text"
                   value={card.name}
                   disabled
-                  className="w-full p-2 border rounded bg-gray-200  text-gray-700"
+                  className="w-full p-2 border rounded bg-gray-200  text-brightPinkCrayola"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold">
+                <label className="block text-brightPinkCrayola font-semibold">
                   Job Title
                 </label>
                 <input
                   type="text"
                   value={card.jobTitle}
                   disabled
-                  className="w-full p-2 border rounded bg-gray-200  text-gray-700"
+                  className="w-full p-2 border rounded bg-gray-200  text-brightPinkCrayola"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold">
+                <label className="block text-brightPinkCrayola font-semibold">
                   Company Name
                 </label>
                 <input
                   type="text"
                   value={card.companyName}
                   disabled
-                  className="w-full p-2 border rounded bg-gray-200  text-gray-700"
+                  className="w-full p-2 border rounded bg-gray-200  text-brightPinkCrayola"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold">
+                <label className="block text-brightPinkCrayola font-semibold">
                   Email Address
                 </label>
                 <input
                   type="email"
                   value={card.email}
                   disabled
-                  className="w-full p-2 border rounded bg-gray-200  text-gray-700"
+                  className="w-full p-2 border rounded bg-gray-200  text-brightPinkCrayola"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold">
+                <label className="block text-brightPinkCrayola font-semibold">
                   Phone Number
                 </label>
                 <input
                   type="tel"
                   value={card.phone}
                   disabled
-                  className="w-full p-2 border rounded bg-gray-200  text-gray-700"
+                  className="w-full p-2 border rounded bg-gray-200  text-brightPinkCrayola"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold ">
+                <label className="block text-brightPinkCrayola font-semibold ">
                   Address
                 </label>
                 <input
                   type="text"
                   value={card.address}
                   disabled
-                  className="w-full p-2 border rounded bg-gray-200  text-gray-700"
+                  className="w-full p-2 border rounded bg-gray-200  text-brightPinkCrayola"
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold">
+                <label className="block text-brightPinkCrayola font-semibold">
                   Processed Timestamp
                 </label>
                 <input
                   type="text"
                   value={card.timestamp}
                   disabled
-                  className="w-full p-2 border rounded bg-gray-200  text-gray-700"
+                  className="w-full p-2 border rounded bg-gray-200  text-brightPinkCrayola"
                 />
               </div>
             </form>
