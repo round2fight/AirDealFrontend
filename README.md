@@ -1,4 +1,4 @@
-This is an assignment for AirDeal developer role by Roshan Daniel.
+This is an assignment for AirDeal developer role by Roshan Daniel -> https://air-deal-frontend.vercel.app or https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app
 
 ## Details
 
@@ -20,7 +20,7 @@ To summarize I was given an assignment to extract data using OCR from image file
 
 ## Instructions
 
-- For the first request, please do wait for 40-60 seconds for my backend server to spinup along with my mongodb since its a free service.
+- For the first request, please do wait for 40-60 seconds for my backend server to spinup along with my mongodb since its a free service. You will se an error reagarding a timeout. 2-3 second post this, all reqeuests work with little delay
 
 - You can vist this [URL](https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/) -> https://air-deal-frontend-git-main-roshan-daniels-projects.vercel.app/ and https://air-deal-frontend.vercel.app/ to find my project.
 
