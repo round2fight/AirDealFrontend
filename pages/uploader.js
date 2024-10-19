@@ -13,7 +13,7 @@ const UploadImagePage = () => {
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    accept: "image/*",
+    accept: { "image/*": [] },
   });
 
   const [cards, setCards] = useState([]);
